@@ -14,12 +14,14 @@ const refs = {
 };
 
 const onForm = event => {
+  event.preventDefault();
   if (localValues.email === '' || localValues.message === '') {
     return alert('Please enter a valid email');
-  } else if (localStorage.getItem(STORAGE_KEY)) {
+  }
+  if (localStorage.getItem(STORAGE_KEY)) {
     console.log(localStorage.getItem(STORAGE_KEY));
   }
-  event.currentarget.reset();
+  event.target.reset();
   localStorage.removeItem(STORAGE_KEY);
 };
 
